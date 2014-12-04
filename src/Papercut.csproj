@@ -811,19 +811,19 @@
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
   </Target>
-  <Target Name="EmbedReferencedAssemblies" AfterTargets="ResolveAssemblyReferences">
+  <!--<Target Name="EmbedReferencedAssemblies" AfterTargets="ResolveAssemblyReferences">
     <ItemGroup>
-      <!--get list of assemblies marked as CopyToLocal-->
+      --><!--get list of assemblies marked as CopyToLocal--><!--
       <AssembliesToEmbed Include="@(ReferenceCopyLocalPaths)" Condition="'%(Extension)' == '.dll'" />
-      <!--add these assemblies to the list of embedded resources-->
+      --><!--add these assemblies to the list of embedded resources--><!--
       <EmbeddedResource Include="@(AssembliesToEmbed)">
         <LogicalName>%(AssembliesToEmbed.DestinationSubDirectory)%(AssembliesToEmbed.Filename)%(AssembliesToEmbed.Extension)</LogicalName>
       </EmbeddedResource>
-      <!--no need to copy the assemblies locally anymore-->
+      --><!--no need to copy the assemblies locally anymore--><!--
       <ReferenceCopyLocalPaths Remove="@(AssembliesToEmbed)" />
     </ItemGroup>
     <Message Importance="high" Text="Embedding: @(AssembliesToEmbed->'%(DestinationSubDirectory)%(Filename)%(Extension)', ', ')" />
   </Target>
-  <Target Name="_CopyFilesMarkedCopyLocal" />
+  <Target Name="_CopyFilesMarkedCopyLocal" />-->
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
 </Project>
