@@ -45,7 +45,7 @@ namespace Papercut
             ExecutablePath = Assembly.GetExecutingAssembly().Location;
 
             // nothing can be called or loaded before this call is done.
-            AssemblyResolutionHelper.SetupEmbeddedAssemblyResolve();
+            //AssemblyResolutionHelper.SetupEmbeddedAssemblyResolve();
         }
 
         public ILifetimeScope Container
