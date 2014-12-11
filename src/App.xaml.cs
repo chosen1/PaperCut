@@ -45,16 +45,7 @@ namespace Papercut
             ExecutablePath = Assembly.GetExecutingAssembly().Location;
 
             // nothing can be called or loaded before this call is done.
-            // AssemblyResolutionHelper.SetupEmbeddedAssemblyResolve();
-
-            AppDomain.CurrentDomain.UnhandledException += (sender, args) =>
-            {
-                if (Log.Logger == null) return;
-                if (args.IsTerminating)
-                    Log.Logger.Fatal(args.ExceptionObject as Exception, "Unhandled Exception");
-                else
-                    Log.Logger.Information(args.ExceptionObject as Exception, "Non-Fatal Unhandled Exception");
-            };
+            AssemblyResolutionHelper.SetupEmbeddedAssemblyResolve();
         }
 
         public ILifetimeScope Container
